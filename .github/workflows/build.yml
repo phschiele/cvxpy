@@ -24,4 +24,4 @@ jobs:
       DEPLOY_PYPI_SOURCE: "false"
     steps:
       - name: Echo envs
-      run: echo $PYTHON_VERSION $COVERAGE $USE_OPENMP $DEPLOY_PYPI_SOURCE
+        run: echo $PYTHON_VERSION $COVERAGE $USE_OPENMP $DEPLOY_PYPI_SOURCE
