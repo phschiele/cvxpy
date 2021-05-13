@@ -1,12 +1,11 @@
 #!/bin/bash
 # This script is meant to be called by the "install" step defined in
-# .travis.yml. See http://docs.travis-ci.com/ for more details.
-# The behavior of the script is controlled by environment variables defined
-# in the .travis.yml in the top level folder of the project.
+# build.yml. The behavior of the script is controlled by environment 
+# variables defined in the build.yml in .github/workflows/.
 
 set -e
 
-if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+if [[ "$RUNNER_OS" == "Linux" ]]; then
     sudo apt-get update -qq
     sudo apt-get install -qq gfortran libgfortran3
     # LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libgfortran.so.3
@@ -14,7 +13,7 @@ if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
        -O miniconda.sh
     chmod +x miniconda.sh && ./miniconda.sh -b
     export PATH=/home/travis/miniconda3/bin:$PATH
-elif [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+elif [[ "$RUNNER_OS" == "macOS" ]]; then
     wget http://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh \
          -O miniconda.sh
     chmod +x miniconda.sh && ./miniconda.sh -b
@@ -46,12 +45,12 @@ elif [[ "$PYTHON_VERSION" == "3.9" ]]; then
   pip install osqp
 fi
 
-if [[ "$USE_OPENMP" == "true" ]]; then
+if [[ "$USE_OPENMP" == "True" ]]; then
     conda install -c conda-forge openmp
 fi
 
 pip install diffcp
 
-if [[ "$COVERAGE" == "true" ]]; then
+if [[ "$COVERAGE" == "True" ]]; then
     pip install coverage coveralls
 fi
