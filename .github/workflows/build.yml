@@ -17,6 +17,9 @@ jobs:
           - os: ubuntu-latest
             python-version: 3.8
             USE_OPENMP: "True"
+          - os: ubuntu-latest
+            python-version: 3.8
+            USE_OPENMP: "false"
     env:
       PYTHON_VERSION:  ${{ matrix.python-version }}
       COVERAGE: "false"
