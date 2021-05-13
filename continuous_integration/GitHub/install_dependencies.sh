@@ -21,15 +21,15 @@ elif [[ "$PYTHON_VERSION" == "3.9" ]]; then
   # The earliest version of numpy that works is 1.19.
   # Given numpy 1.19, the earliest version of scipy we can use is 1.5.
   conda install mkl pip pytest scipy=1.5 numpy=1.19 lapack ecos scs flake8 cvxopt
-  #pip install osqp
+  python -m pip install osqp
 fi
 
 if [[ "$USE_OPENMP" == "True" ]]; then
     conda install -c conda-forge openmp
 fi
 
-#pip install diffcp
+python -m pip install diffcp
 
 if [[ "$COVERAGE" == "True" ]]; then
-    #pip install coverage coveralls
+    python -m pip install coverage coveralls
 fi
