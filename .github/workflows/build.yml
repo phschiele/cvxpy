@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash -l {0}
     strategy:
       fail-fast: false
       matrix:
@@ -50,7 +53,7 @@ jobs:
           source continuous_integration/GitHub/install_dependencies.sh
       - name: test
         run: |
-          $CONDA/bin/flake8 .
+          conda flake8 .
           bash continuous_integration/GitHub/test_script.sh
       - name: coverage
         run: if [[ "$COVERAGE" == "True" ]]; then coveralls; fi
