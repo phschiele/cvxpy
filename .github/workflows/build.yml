@@ -36,6 +36,7 @@ jobs:
       PYPI_API_ENDPOINT: ${{ secrets.PYPI_API_ENDPOINT }}
 
     steps:
+      - uses: actions/checkout@v2
       - name: install
         run: |
           if [ "$RUNNER_OS" = "macOS" ]; then CC=gcc ; fi
