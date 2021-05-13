@@ -40,12 +40,12 @@ jobs:
         run: |
           if [ "$RUNNER_OS" = "macOS" ]; then CC=gcc ; fi
           if [ "$RUNNER_OS" = "macOS" ]; then CXX=g++; fi
-          source continuous_integration/Travis/install_dependencies.sh
+          source continuous_integration/GitHub/install_dependencies.sh
       - name: test
         run: |
           flake8 .
-          bash continuous_integration/Travis/test_script.sh
+          bash continuous_integration/GitHub/test_script.sh
       - name: coverage
         run: if [[ "$COVERAGE" == "True" ]]; then coveralls; fi
       - name: deploy
-        run: bash continuous_integration/Travis/deploy_script.sh
+        run: bash continuous_integration/GitHub/deploy_script.sh
