@@ -16,19 +16,20 @@ jobs:
         include:
           - os: ubuntu-latest
             python-version: 3.8
-            openmp: "true"
+            openmp: "True"
           - os: ubuntu-latest
             python-version: 3.8
-            openmp: "false"
+            openmp: "False"
+            deploy_pypi_source : "True"
           - os: macos-latest
             python-version: 3.8
-            openmp: "false"
+            openmp: "False"
     env:
       RUNNER_OS: ${{ matrix.os }}
       PYTHON_VERSION: ${{ matrix.python-version }}
-      COVERAGE: "false"
-      DEPLOY_PYPI_SOURCE: "false"
-      USE_OPENMP: "${{ matrix.openmp == 'true' && 'True' || 'false' }}"
+      COVERAGE: "False"
+      DEPLOY_PYPI_SOURCE: "${{ matrix.deploy_pypi_source == 'True' && 'True' || 'False' }}"
+      USE_OPENMP: "${{ matrix.openmp == 'True' && 'True' || 'False' }}"
 
     steps:
       - name: Echo envs
