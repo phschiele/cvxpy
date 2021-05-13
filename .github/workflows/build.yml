@@ -53,7 +53,7 @@ jobs:
           source continuous_integration/GitHub/install_dependencies.sh
       - name: test
         run: |
-          conda flake8 .
+          flake8 .
           bash continuous_integration/GitHub/test_script.sh
       - name: coverage
         run: if [[ "$COVERAGE" == "True" ]]; then coveralls; fi
