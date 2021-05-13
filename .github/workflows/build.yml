@@ -28,7 +28,7 @@ jobs:
       PYTHON_VERSION: ${{ matrix.python-version }}
       COVERAGE: "false"
       DEPLOY_PYPI_SOURCE: "false"
-      USE_OPENMP: "${{ matrix.openmp}} == 'true' && 'True' || 'false' }}"
+      USE_OPENMP: "${{ matrix.openmp == 'true' && 'True' || 'false' }}"
 
     steps:
       - name: Echo envs
