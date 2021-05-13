@@ -38,6 +38,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
       - name: install
         run: |
           if [ "$RUNNER_OS" = "macOS" ]; then CC=gcc ; fi
@@ -45,7 +49,7 @@ jobs:
           source continuous_integration/GitHub/install_dependencies.sh
       - name: test
         run: |
-          flake8 .
+          $CONDA/bin/flake8 .
           bash continuous_integration/GitHub/test_script.sh
       - name: coverage
         run: if [[ "$COVERAGE" == "True" ]]; then coveralls; fi
