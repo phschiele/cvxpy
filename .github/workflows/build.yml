@@ -1,0 +1,27 @@
+name: build
+
+on:
+    pull_request:
+    push:
+        branches:
+            - master
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, macos-latest ]
+        python-version: [ 3.7, 3.8, 3.9 ]
+        include:
+          - os: ubuntu-latest
+            python-version: 3.8
+            USE_OPENMP: "True"
+    env:
+      PYTHON_VERSION:  ${{ matrix.python-version }}
+      COVERAGE: "false"
+      USE_OPENMP: "false"
+      DEPLOY_PYPI_SOURCE: "false"
+    steps:
+      - name: Echo envs
+      run: echo $PYTHON_VERSION $COVERAGE $USE_OPENMP $DEPLOY_PYPI_SOURCE
