@@ -38,10 +38,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - uses: conda-incubator/setup-miniconda@v2
         with:
+          auto-update-conda: true
           python-version: ${{ matrix.python-version }}
+          channels: conda-forge,anaconda
       - name: install
         run: |
           if [ "$RUNNER_OS" = "macOS" ]; then CC=gcc ; fi
