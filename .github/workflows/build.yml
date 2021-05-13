@@ -9,6 +9,11 @@ on:
 jobs:
   build:
     runs-on: ${{ matrix.os }}
+    env:
+      PYTHON_VERSION: ${{ matrix.python-version }}
+      COVERAGE: "false"
+      USE_OPENMP: "false"
+      DEPLOY_PYPI_SOURCE: "false"
     strategy:
       matrix:
         os: [ ubuntu-latest, macos-latest ]
@@ -17,14 +22,7 @@ jobs:
           - os: ubuntu-latest
             python-version: 3.8
             USE_OPENMP: "True"
-          - os: ubuntu-latest
-            python-version: 3.8
-            USE_OPENMP: "false"
-    env:
-      PYTHON_VERSION:  ${{ matrix.python-version }}
-      COVERAGE: "false"
-      USE_OPENMP: "false"
-      DEPLOY_PYPI_SOURCE: "false"
+
     steps:
       - name: Echo envs
         run: echo $PYTHON_VERSION $COVERAGE $USE_OPENMP $DEPLOY_PYPI_SOURCE
