@@ -49,10 +49,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set Subversion Env
-        run: echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
+        run: echo "PYTHON_SUBVERSION=$(echo ${{env.PYTHON_VERSION}} | cut -c 3-)" >> $PYTHON_SUBVERSION
       - name: Test Subversion Env
         env:
-          CIBW_BUILD: "cp3$GITHUB_SHA_SHORT-*"
+          CIBW_BUILD: "cp3$PYTHON_SUBVERSION-*"
         run: echo ${{env.CIBW_BUILD}}
       - uses: conda-incubator/setup-miniconda@v2
         with:
