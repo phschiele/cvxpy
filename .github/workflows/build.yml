@@ -76,7 +76,7 @@ jobs:
         uses: joerick/cibuildwheel@v1.11.0
 
       - name: Build source
-        if: ${{env.DEPLOY_PYPI_SOURCE == 'True' && env.RUNNER_OS == 'macOS'}}
+        if: ${{env.DEPLOY_PYPI_SOURCE == 'True'}}
         run: |
           python setup.py sdist --dist-dir=wheelhouse
 
