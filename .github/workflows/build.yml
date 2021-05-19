@@ -39,7 +39,7 @@ jobs:
     env:
       RUNNER_OS: ${{ matrix.os }}
       PYTHON_VERSION: ${{ matrix.python-version }}
-      PYTHON_SUBVERSION: ${{ matrix.python-version:2}}
+      PYTHON_SUBVERSION: "${${{ matrix.python-version}}:2}"
       COVERAGE: "False"
       DEPLOY_PYPI_SOURCE: "${{ matrix.deploy_pypi_source == 'True' && 'True' || 'False' }}"
       USE_OPENMP: "${{ matrix.openmp == 'True' && 'True' || 'False' }}"
