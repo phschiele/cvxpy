@@ -49,6 +49,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Set Subversion Env
+        run: echo "PYTHON_SUBVERSION=$(echo ${PYTHON_VERSION:2})" >> $PYTHON_SUBVERSION
       - uses: conda-incubator/setup-miniconda@v2
         with:
           auto-update-conda: true
@@ -69,7 +71,7 @@ jobs:
       - name: Build wheels
         if: ${{env.USE_OPENMP}} != 'True'
         env:
-          CIBW_BUILD: "cp3${{env.PYTHON_SUBVERSION}}-*"
+          CIBW_BUILD: "cp3$PYTHON_SUBVERSION-*"
           CIBW_SKIP: "*-win32 *-manylinux_i686"
         uses: joerick/cibuildwheel@v1.11.0
 
