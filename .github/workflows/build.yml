@@ -86,7 +86,8 @@ jobs:
           python -m pip install --upgrade twine
           twine upload -repository-url $PYPI_SERVER wheelhouse/* -u $PYPI_USER -p $PYPI_PASSWORD
 
-      - uses: actions/download-artifact@v2
+      - name: Upload artifacts to github
+        uses: actions/upload-artifact@v1
         with:
           name: wheels
           path: ./wheelhouse
