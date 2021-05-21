@@ -13,21 +13,21 @@ fi
 
 if [[ "$PYTHON_VERSION" == "3.6" ]]; then
   conda install pip pytest lapack ecos scs osqp flake8 cvxopt
-  conda -c conda-forge install scipy=1.1 numpy=1.15
+  conda install -c conda-forge scipy=1.1 numpy=1.15
 elif [[ "$PYTHON_VERSION" == "3.7" ]]; then
   conda install pip pytest lapack ecos scs osqp flake8 cvxopt
-  conda -c conda-forge install scipy=1.1 numpy=1.15
+  conda install -c conda-forge scipy=1.1 numpy=1.15
 elif [[ "$PYTHON_VERSION" == "3.8" ]]; then
   # There is a config that works with numpy 1.14, but not 1.15!
   # So we fix things at 1.16.
   # Assuming we use numpy 1.16, the earliest version of scipy we can use is 1.3.
   conda install pip pytest lapack ecos scs osqp flake8 cvxopt
-  conda -c conda-forge  install scipy=1.3 numpy=1.16
+  conda install -c conda-forge scipy=1.3 numpy=1.16
 elif [[ "$PYTHON_VERSION" == "3.9" ]]; then
   # The earliest version of numpy that works is 1.19.
   # Given numpy 1.19, the earliest version of scipy we can use is 1.5.
   conda install pip pytest lapack ecos scs osqp flake8 cvxopt
-  conda -c conda-forge install scipy=1.5 numpy=1.19
+  conda install -c conda-forge scipy=1.5 numpy=1.19
 fi
 
 if [[ "$USE_OPENMP" == "True" ]]; then
