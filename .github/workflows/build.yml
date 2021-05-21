@@ -73,7 +73,7 @@ jobs:
       - name: Test
         run: |
           flake8 .
-          bash continuous_integration/test_script.sh
+          source continuous_integration/test_script.sh
 
       - name: Coverage
         run: if [[ "$COVERAGE" == "True" ]]; then coveralls; fi
