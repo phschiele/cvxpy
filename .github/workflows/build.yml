@@ -68,12 +68,12 @@ jobs:
         run: |
           if [ "$RUNNER_OS" = "macOS" ]; then CC=gcc ; fi
           if [ "$RUNNER_OS" = "macOS" ]; then CXX=g++; fi
-          bash continuous_integration/install_dependencies.sh
+          source continuous_integration/install_dependencies.sh
 
       - name: Test
         run: |
           flake8 .
-          bash continuous_integration/test_script.sh
+          source continuous_integration/test_script.sh
 
       - name: Coverage
         run: if [[ "$COVERAGE" == "True" ]]; then coveralls; fi
