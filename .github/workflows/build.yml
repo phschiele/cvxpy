@@ -48,6 +48,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: ilammy/msvc-dev-cmd@v1
       - name: Set Subversion Env
         run: echo "PYTHON_SUBVERSION=$(echo $PYTHON_VERSION | cut -c 3-)" >> $GITHUB_ENV
       - uses: conda-incubator/setup-miniconda@v2
