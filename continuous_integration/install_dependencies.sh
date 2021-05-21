@@ -26,7 +26,7 @@ elif [[ "$PYTHON_VERSION" == "3.9" ]]; then
 fi
 
 if [[ "$USE_OPENMP" == "True" ]]; then
-    python -m pip install -c conda-forge openmp
+    python -m pip install openmp
 fi
 
 python -m pip install diffcp
