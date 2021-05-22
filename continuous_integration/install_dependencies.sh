@@ -12,7 +12,7 @@ fi
 
 
 if [[ "$PYTHON_VERSION" == "3.6" ]]; then
-  conda install scipy=1.1 numpy=1.15 mkl=2018.0.3 pip pytest lapack ecos scs osqp flake8 cvxopt
+  conda install scipy=1.1 numpy=1.15 mkl pip pytest lapack ecos scs osqp flake8 cvxopt
 elif [[ "$PYTHON_VERSION" == "3.7" ]]; then
   conda install scipy=1.1 numpy=1.15 mkl pip pytest lapack ecos scs osqp flake8 cvxopt
 elif [[ "$PYTHON_VERSION" == "3.8" ]]; then
