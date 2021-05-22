@@ -54,7 +54,7 @@ jobs:
         with:
           auto-update-conda: true
           python-version: ${{ matrix.python-version }}
-          channels: anaconda, conda-forge
+          channels: conda-forge, anaconda
 
       - name: Install
         run: |
