@@ -57,7 +57,7 @@ jobs:
 #          channels: conda-forge, anaconda
 
       - name: Test simple install
-        run |
+        run: |
           pip install -e .
           pytest cvxpy/tests/
 
