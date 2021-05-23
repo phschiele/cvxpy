@@ -54,6 +54,7 @@ jobs:
           channels: conda-forge, anaconda
 
       - name: Test simple install
+        shell: bash -l {0}
         run: |
           conda install scipy numpy pip pytest ecos scs osqp flake8 cvxopt
           python -m pip install --upgrade pip
