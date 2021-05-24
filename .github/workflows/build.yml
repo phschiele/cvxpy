@@ -53,18 +53,19 @@ jobs:
           python-version: ${{ matrix.python-version }}
           channels: conda-forge, anaconda
 
-#      - name: Test simple install
-#        shell: bash -l {0}
-#        run: |
-#          conda install scipy numpy pip pytest ecos scs osqp flake8 cvxopt
-#          python -m pip install --upgrade pip
-#          pip install diffcp
-#          python setup.py install
-#          pytest cvxpy/tests/
-      - name: Install Windows
-        if: ${{startsWith(matrix.os,'ubuntu') &&  env.USE_OPENMP != 'True'}}
+      - name: Test simple install
+        shell: bash -l {0}
         run: |
-          echo "worked"
+          conda install scipy numpy pip pytest ecos scs osqp flake8 cvxopt
+          python -m pip install --upgrade pip
+          pip install diffcp
+          python setup.py install
+          pytest cvxpy/tests/
+      - name: Install Windows
+        if: startsWith(matrix.os,'windows')
+        shell: pwsh
+        run: |
+          .\continuous_integration/windows.ps1
 
 
 #      - name: Install
