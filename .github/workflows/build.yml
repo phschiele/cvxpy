@@ -61,6 +61,12 @@ jobs:
           pip install diffcp
           python setup.py install
           pytest cvxpy/tests/
+      - name: Install Windows
+        if: startsWith(matrix.os,'windows')
+        shell: pwsh
+        run: |
+          .\continuous_integration/windows.ps1
+
 
 #      - name: Install
 #        run: |
