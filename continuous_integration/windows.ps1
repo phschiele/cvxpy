@@ -5,7 +5,7 @@ $client = new-object System.Net.WebClient
 $filepath = $pwd.Path + "\" + $miniconda_filename
 $client.DownloadFile("https://repo.anaconda.com/miniconda/" + $miniconda_filename,  $filepath)
 
-$install_args = "/InstallationType=JustMe /S /RegisterPython=1 /D=" + $env:PYTHON
+$install_args = "/InstallationType=JustMe /S /AddToPath=1 /RegisterPython=1"
 Write-Host $filepath $install_args
 Start-Process -Filepath $filepath -ArgumentList $install_args -Wait -Passthru
 
