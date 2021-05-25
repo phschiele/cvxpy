@@ -62,7 +62,7 @@ jobs:
         if: startsWith(matrix.os,'windows')
         shell: bash
         run: |
-          .\continuous_integration/windows.sh
+          bash continuous_integration/windows.sh
 
 
 #      - name: Install
