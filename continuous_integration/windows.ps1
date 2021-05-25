@@ -1,17 +1,6 @@
 # Download miniconda
 
-$miniconda_filename = "Miniconda3-py39_4.9.2-Windows-x86_64.exe"
-$miniconda_url = "https://repo.continuum.io/miniconda/"
-$fileurl = $miniconda_url + $miniconda_filename
-$filepath = $pwd.Path + "\" + $miniconda_filename
-$client = new-object System.Net.WebClient
-$client.DownloadFile($fileurl,  $filepath)
-
-# Install miniconda
-
-$install_args = "/InstallationType=JustMe /S /RegisterPython=1 /D=" + $env:PYTHON
-Write-Host $filepath $install_args
-Start-Process -Filepath $filepath -ArgumentList $install_args -Wait -Passthru
+choco install miniconda3 --params="'/AddToPath:1'"
 
 # Update conda and call "conda init" to handle path management issues on Windows
 
