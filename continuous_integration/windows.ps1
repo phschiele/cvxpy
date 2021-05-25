@@ -1,6 +1,13 @@
 # Download miniconda
 
-choco install miniconda3 --params="'/AddToPath:1'"
+$miniconda_filename = "Miniconda3-latest-Windows-x86_64.exe"
+$client = new-object System.Net.WebClient
+$filepath = $pwd.Path + "\" +
+$client.DownloadFile("https://repo.anaconda.com/miniconda/" + $miniconda_filename,  $filepath)
+
+$install_args = "/InstallationType=JustMe /S /RegisterPython=1 /D=" + $env:PYTHON
+Write-Host $filepath $install_args
+Start-Process -Filepath $filepath -ArgumentList $install_args -Wait -Passthru
 
 # Update conda and call "conda init" to handle path management issues on Windows
 
