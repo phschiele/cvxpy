@@ -2,7 +2,7 @@
 
 $miniconda_filename = "Miniconda3-latest-Windows-x86_64.exe"
 $client = new-object System.Net.WebClient
-$filepath = $pwd.Path + "\" +
+$filepath = $pwd.Path + "\" + $miniconda_filename
 $client.DownloadFile("https://repo.anaconda.com/miniconda/" + $miniconda_filename,  $filepath)
 
 $install_args = "/InstallationType=JustMe /S /RegisterPython=1 /D=" + $env:PYTHON
