@@ -60,9 +60,9 @@ jobs:
 
       - name: Install Windows
         if: startsWith(matrix.os,'windows')
-        shell: pwsh
+        shell: bash
         run: |
-          .\continuous_integration/windows.ps1
+          .\continuous_integration/windows.sh
 
 
 #      - name: Install
