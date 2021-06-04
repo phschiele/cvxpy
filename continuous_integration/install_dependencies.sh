@@ -30,7 +30,7 @@ if [[ "$USE_OPENMP" == "True" ]]; then
     conda install -c conda-forge openmp
 fi
 
-python -m pip install diffcp gurobipy
+python -m pip install diffcp gurobipy cplex
 
 if [[ "$COVERAGE" == "True" ]]; then
     python -m pip install coverage coveralls
