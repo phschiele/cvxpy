@@ -57,7 +57,7 @@ class TestQp(BaseTest):
         self.force = Variable((2, T - 1), name='force')
 
         self.xs = Variable(80, name='xs')
-        self.xsr = Variable(200, name='xsr')
+        self.xsr = Variable(50, name='xsr')
         self.xef = Variable(80, name='xef')
 
         # Check for all installed QP solvers
@@ -318,8 +318,8 @@ class TestQp(BaseTest):
 
     def smooth_ridge(self, solver) -> None:
         np.random.seed(1)
-        n = 200
-        k = 50
+        n = 50
+        k = 20
         eta = 1
 
         A = np.ones((k, n))
