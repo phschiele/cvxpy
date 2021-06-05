@@ -624,6 +624,7 @@ class TestCBC(BaseTest):
     def test_cbc_lp_4(self) -> None:
         StandardTestLPs.test_lp_4(solver='CBC')
 
+    @pytest.mark.skip(reason="Need dual variable recovery for CBC #1077")
     def test_cbc_lp_5(self) -> None:
         StandardTestLPs.test_lp_5(solver='CBC')
 

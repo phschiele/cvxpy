@@ -16,7 +16,6 @@ limitations under the License.
 import warnings
 
 import numpy as np
-import pytest
 
 import cvxpy as cp
 from cvxpy.tests.base_test import BaseTest
@@ -742,7 +741,6 @@ class StandardTestLPs:
         sth.solve(solver, **kwargs)
         sth.verify_objective(places)
 
-    @pytest.mark.skip(reason="Need dual variable recovery for CBC #1077")
     @staticmethod
     def test_lp_5(solver, places: int = 4, duals: bool = True,  **kwargs) -> None:
         sth = lp_5()
