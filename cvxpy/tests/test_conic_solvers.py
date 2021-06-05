@@ -1234,13 +1234,13 @@ class TestSCIP(unittest.TestCase):
         StandardTestSOCPs.test_socp_1(solver="SCIP", places=3, duals=False)
 
     def test_scip_socp_2(self) -> None:
-        StandardTestSOCPs.test_socp_2(solver="SCIP", places=2)
+        StandardTestSOCPs.test_socp_2(solver="SCIP", places=2, duals=False)
 
     def test_scip_socp_3(self) -> None:
         # axis 0
-        StandardTestSOCPs.test_socp_3ax0(solver="SCIP")
+        StandardTestSOCPs.test_socp_3ax0(solver="SCIP", duals=False)
         # axis 1
-        StandardTestSOCPs.test_socp_3ax1(solver="SCIP")
+        StandardTestSOCPs.test_socp_3ax1(solver="SCIP", duals=False)
 
     def test_scip_mi_lp_0(self) -> None:
         StandardTestLPs.test_mi_lp_0(solver="SCIP")
