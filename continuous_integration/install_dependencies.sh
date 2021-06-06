@@ -11,7 +11,7 @@ if [[ "$PYTHON_VERSION" == "3.6" ]] || [[ "$PYTHON_VERSION" == "3.7" ]] || [[ "$
 elif [[ "$PYTHON_VERSION" == "3.9" ]]; then
   # The earliest version of numpy that works is 1.19.
   # Given numpy 1.19, the earliest version of scipy we can use is 1.5.
-  conda install scipy=1.5 numpy=1.19 mkl pip pytest lapack ecos scs osqp flake8 cvxopt
+  conda install scipy=1.5 numpy=1.19 mkl pip pytest lapack ecos scs osqp flake8 cvxopt pyscipopt
 fi
 
 # CBC comes with wheels for windows and needs coin-or-cbc to compile otherwise
@@ -23,7 +23,7 @@ if [[ "$PYTHON_VERSION" != "3.6" ]] && [[ "$RUNNER_OS" != "Windows" ]]; then
   python -m pip install cylp
 fi
 
-python -m pip install diffcp gurobipy xpress pyscipopt
+python -m pip install diffcp gurobipy xpress
 
 if [[ "$USE_OPENMP" == "True" ]]; then
   conda install -c conda-forge openmp
