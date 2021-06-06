@@ -6,7 +6,7 @@
 set -e
 
 if [[ "$PYTHON_VERSION" == "3.6" ]]; then
-  conda install scipy=1.3 numpy=1.16 mkl pip pytest lapack ecos scs osqp flake8 cvxopt coincbc
+  conda install scipy=1.3 numpy=1.16 mkl pip pytest lapack ecos scs osqp flake8 cvxopt
   python -m pip install cplex
 elif [[ "$PYTHON_VERSION" == "3.7" ]]; then
   conda install scipy=1.3 numpy=1.16 mkl pip pytest lapack ecos scs osqp flake8 cvxopt
@@ -24,15 +24,16 @@ elif [[ "$PYTHON_VERSION" == "3.9" ]]; then
 fi
 
 if [[ "$RUNNER_OS" != "windows"* ]]; then
-    conda install coincbc
+  echo "installing coincbc"
+  conda install coincbc
 fi
 
 python -m pip install diffcp gurobipy xpress cylp
 
 if [[ "$USE_OPENMP" == "True" ]]; then
-    conda install -c conda-forge openmp
+  conda install -c conda-forge openmp
 fi
 
 if [[ "$COVERAGE" == "True" ]]; then
-    python -m pip install coverage coveralls
+  python -m pip install coverage coveralls
 fi
