@@ -5,6 +5,12 @@
 
 set -e
 
+echo "starting install"
+
+if [[ "$RUNNER_OS" = "macos"* ]]; then echo "Setting compilers for macOS" ; fi
+if [[ "$RUNNER_OS" = "macos"* ]]; then CC=gcc ; fi
+if [[ "$RUNNER_OS" = "macos"* ]]; then CXX=g++; fi
+
 if [[ "$PYTHON_VERSION" == "3.6" ]]; then
   conda install scipy=1.3 numpy=1.16 mkl pip pytest lapack ecos scs osqp flake8 cvxopt
   python -m pip install cplex
@@ -24,6 +30,7 @@ elif [[ "$PYTHON_VERSION" == "3.9" ]]; then
 fi
 
 if [[ "$RUNNER_OS" != "windows"* ]]; then
+  echo "$RUNNER_OS"
   echo "installing coincbc"
   conda install coincbc
 fi

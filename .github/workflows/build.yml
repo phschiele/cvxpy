@@ -62,9 +62,6 @@ jobs:
 
       - name: Install
         run: |
-          if [[ "$RUNNER_OS" = "macos"* ]]; then echo "Setting compilers for macOS" ; fi
-          if [[ "$RUNNER_OS" = "macos"* ]]; then CC=gcc ; fi
-          if [[ "$RUNNER_OS" = "macos"* ]]; then CXX=g++; fi
           source continuous_integration/install_dependencies.sh
 
       - name: Test
